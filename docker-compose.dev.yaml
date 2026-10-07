@@ -1,0 +1,13 @@
+name: "notes"
+services:
+  db:
+    image: postgres:18.6
+    restart: always
+    volumes:
+      - ./db_data:/var/lib/postgresql
+    environment:
+      - POSTGRES_USER=note-server
+      - POSTGRES_PASSWORD=note-server
+      - POSTGRES_DB=notes
+    ports:
+      - "0.0.0.0:5445:5432"
