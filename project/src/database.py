@@ -6,7 +6,7 @@ from os import getenv
 
 load_dotenv()
 
-engine = create_async_engine(str(getenv("DATABASE_URL")), pool_pre_ping=True)
+engine = create_async_engine(str(getenv("DATABASE_URL")))
 AsyncSessionLocal = async_sessionmaker(engine, class_=AsyncSession)
 
 Base = declarative_base()
