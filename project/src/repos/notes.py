@@ -10,7 +10,7 @@ class NoteRepo:
         self.db = db
 
     async def get_all(self) -> Sequence[Note]:
-        res = await self.db.execute(select(Note))  # = SELECT * FROM "notes"
+        res = await self.db.execute(select(Note))
         return res.scalars().all()
 
     async def create(self, note_data: NoteCreate) -> Note:
